@@ -4,30 +4,36 @@
 using namespace std;
 
 
-void operar (int parar, Calculadora &cal, int opcion){
-	Calculadora calc;
-	while (parar == 0){
+void operar (int &parar1, Calculadora &calc, int &opcions){
+	
+	
+	Calculadora cal;
+	
+	cal= calc;
+	while (parar1 == 0){
 		cout << "¿Que operación desea realizar?"<< endl;
 		cout << "1. sumar\n 2.restar \n 3. multiplicar \n 4. dividir"<< endl;
-		cin >> opcion;
+		cin >> opcions;
 		
-		switch(opcion){
+		switch(opcions){
 			case 1: 
-			       cout<< calc.sumar(cal.getNumero1(), cal.getNumero2())<<endl;
+			       cout<< cal.sumar((cal.getNumero1()), (cal.getNumero2()))<<endl;
 			       break;
 			case 2: 
-			       cout<<calc.restar(cal.getNumero1(), cal.getNumero2())<<endl;
+			       cout<<cal.restar((cal.getNumero1()), (cal.getNumero2()))<<endl;
 			       break;
 		    case 3: 
-			       cout<<calc.multiplicar(cal.getNumero1(), cal.getNumero2())<<endl;
+			       cout<<cal.multiplicar((cal.getNumero1()), (cal.getNumero2()))<<endl;
 			       break;
 			case 4: 
-			       cout<<calc.dividir(cal.getNumero1(), cal.getNumero2())<<endl;
+			       cout<<cal.dividir(cal.getNumero1(), cal.getNumero2())<<endl;
 			       break;
 		}
 		
 	  cout <<"Desea salir del menu: \nSi=1 \nNo=0"<< endl;
-	  cin>> parar;
+	  cin>> parar1;
+	  
+	      
 	}
 }	
 
@@ -47,7 +53,10 @@ int main(int argc, char ** argv){
 	cin>>numero2;
 	cal.setNumero2(numero2);
 	cout << "¿Que operación desea realizar?"<< endl;
-		cout << "1. sumar\n 2.restar \n 3. multiplicar \n 4. dividir"<< endl;
-		cin >> opcion;
+	cout << "1. sumar\n 2.restar \n 3. multiplicar \n 4. dividir"<< endl;
+	cin >> opcion;
 	operar(parar, cal, opcion);	
+	
+	
+	
 }
